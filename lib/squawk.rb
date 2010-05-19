@@ -38,7 +38,7 @@ class Squawk < Struct.new(:status)
       end  
     end
 
-    def test
+    def test!
       update("The time is currently #{Time.now}")
     end
 
