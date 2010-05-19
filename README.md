@@ -15,7 +15,7 @@ Because Squawk talks to Twitter, it has to run in the background. At least for n
 
 Install Squawk like a typical Rails plugin:
 
-    script/plugin install git@github.com:avand/squawk.git
+    script/plugin install git://github.com/avand/squawk.git
 
 Then run:
 
