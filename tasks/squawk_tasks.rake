@@ -3,11 +3,10 @@
 #   # Task goes here
 # end
 namespace :squawk do
-  desc "Copies a sample config to /config/squawk.rb"
+  desc "Copies a sample initializer to /config/initializers"
   task :install do
-		config_dir = RAILS_ROOT + '/config'
-		config_file = File.join(File.dirname(__FILE__), '..', '/templates/', 'squawk.config.rb')
-		FileUtils.cp(config_file, config_dir)
-		puts "Copied sample config to /config/squawk.rb"
+		config_file = File.join(File.dirname(__FILE__), '..', '/templates/', 'sample_initializer.rb')
+		FileUtils.cp(config_file, RAILS_ROOT + '/config/initializers/squawk.rb')
+		puts "Copied sample initializer to /config/initalizers/squawk.rb"
 	end
 end

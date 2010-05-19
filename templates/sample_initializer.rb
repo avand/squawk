@@ -1,5 +1,5 @@
-# Set your the username and password of the Twitter account you want to Squawk to:
-Squawk.twitter_username = "..."
+# Set your the handle and password of the Twitter account you want to Squawk to:
+Squawk.twitter_handle = "..."
 Squawk.twitter_password = "..."
 
 # Register events you'd like to call in your application with plain old strings:
