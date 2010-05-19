@@ -45,7 +45,7 @@ At at time, see all the registered events:
 Notes
 =====
 
-Twitter enforces [rate limits](play nice.http://apiwiki.twitter.com/Rate-limiting), so play nice! 
+Twitter enforces [rate limits](http://apiwiki.twitter.com/Rate-limiting), so play nice! 
 
 For now, this plugin uses curl to hit Twitter. This was just for simplicity, but isn't very extensible.
 
