@@ -45,6 +45,8 @@ At at time, see all the registered events:
 Notes
 =====
 
+Squawk only tweets in production. You can see what it would have tweeted in the log for other environments.
+
 Twitter enforces [rate limits](http://apiwiki.twitter.com/Rate-limiting), so play nice! 
 
 For now, this plugin uses curl to hit Twitter. This was just for simplicity, but isn't very extensible.
