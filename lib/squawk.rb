@@ -56,7 +56,7 @@ class Squawk < Struct.new(:status)
 
   def perform
     raise "Twitter update failed" unless Kernel.system(
-      "curl -u #{TWITTER_HANDLE}:#{TWITTER_PASSWORD} -d \"status=#{URI.escape(status)}\" http://twitter.com/statuses/update.xml"
+      "curl -u #{@@twitter_handle}:#{@@twitter_password} -d \"status=#{URI.escape(status)}\" http://twitter.com/statuses/update.xml"
     )
   end
 end
