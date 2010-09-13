@@ -1,8 +1,11 @@
 class Squawk < Struct.new(:status)
+  @@twitter_consumer_key = nil
+  @@twitter_consumer_secret = nil
   @@twitter_handle = nil
-  @@twitter_password = nil
+  @@twitter_access_token = nil
+  @@twitter_secret = nil
 
-  cattr_accessor :twitter_handle, :twitter_password
+  cattr_accessor :twitter_consumer_key, :twitter_consumer_secret, :twitter_handle, :twitter_access_token, :twitter_secret
   cattr_reader :events
 
   class << self
@@ -55,8 +58,11 @@ class Squawk < Struct.new(:status)
   end
 
   def perform
-    raise "Twitter update failed" unless Kernel.system(
-      "curl -u #{@@twitter_handle}:#{@@twitter_password} -d \"status=#{URI.escape(status)}\" http://twitter.com/statuses/update.xml"
-    )
+    oauth = Twitter::OAuth.new(@@twitter_consumer_key, @@twitter_consumer_secret, :sign_in => true)
+    oauth.authorize_from_access(@@twitter_access_token, @@twitter_secret)
+
+    twitter = Twitter::Base.new(oauth)
+
+    twitter.update(status)
   end
 end
