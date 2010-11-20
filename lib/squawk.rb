@@ -1,10 +1,4 @@
 class Squawk < Struct.new(:status)
-  @@twitter_consumer_key = nil
-  @@twitter_consumer_secret = nil
-  @@twitter_handle = nil
-  @@twitter_access_token = nil
-  @@twitter_secret = nil
-
   cattr_accessor :twitter_consumer_key, :twitter_consumer_secret, :twitter_handle, :twitter_access_token, :twitter_secret
   cattr_reader :events
 
@@ -26,7 +20,7 @@ class Squawk < Struct.new(:status)
       
       method_name = "#{event_name}!"
 
-      metaclass.instance_eval do # http://ryanangilly.com/post/234897271/dynamically-adding-class-methods-in-ruby
+      (class << self; self; end).class_eval do # http://blog.jayfields.com/2008/02/ruby-dynamically-define-method.html
         # First, the easy case - string
         if message_or_method.is_a?(String)
           define_method method_name do
