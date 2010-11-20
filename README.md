@@ -13,9 +13,9 @@ Installation
 ============
 Because Squawk talks to Twitter, it has to run in the background. At least for now, Squawk assumes that you're using delayed_job.
 
-Install Squawk like a typical Rails plugin:
+Add Squawk to your Gemfile:
 
-    script/plugin install git://github.com/avand/squawk.git
+    gem 'squawk'
 
 Then create your the initializer config/initializers/squawk.rb:
 
