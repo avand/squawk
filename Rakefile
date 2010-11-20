@@ -7,7 +7,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/avand/squawk"
   gem.authors  = ["Avand Amiri"]
   gem.files    = FileList["[A-Z]*", "{lib}/**/*"]
-  gem.version  = '1.0.0'
+  gem.version  = '1.0.1'
 
   gem.add_dependency("twitter", "0.9.8")
 end
