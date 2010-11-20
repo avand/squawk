@@ -42,6 +42,8 @@ class Squawk < Struct.new(:status)
     private
 
       def update(status)
+        return unless status.is_a?(String)
+
         status = status[0...140] # trim status to min Twitter length
       
         Rails.logger.info("Squawk (@#{@@twitter_handle}): #{status}")
