@@ -1,3 +1,5 @@
+require 'oauth'
+
 class Squawk < Struct.new(:status)
   cattr_accessor :twitter_consumer_key, :twitter_consumer_secret, :twitter_handle, :twitter_access_token, :twitter_secret
   cattr_reader :events
@@ -54,11 +56,13 @@ class Squawk < Struct.new(:status)
   end
 
   def perform
-    oauth = Twitter::OAuth.new(@@twitter_consumer_key, @@twitter_consumer_secret, :sign_in => true)
-    oauth.authorize_from_access(@@twitter_access_token, @@twitter_secret)
+    Twitter.configure do |config|
+      config.consumer_key       = @@twitter_consumer_key
+      config.consumer_secret    = @@twitter_consumer_secret
+      config.oauth_token        = @@twitter_access_token
+      config.oauth_token_secret = @@twitter_secret
+    end
 
-    twitter = Twitter::Base.new(oauth)
-
-    twitter.update(status)
+    Twitter.client.new.update(status)
   end
 end
